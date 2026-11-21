@@ -8,7 +8,7 @@ from student_tools import make_study_plan, parse_deadlines, resume_match
 # Tried in order: if one model is busy or over quota, the next one is used.
 MODELS = ["gemini-3.1-flash-lite", "gemini-3.5-flash"]
 
-st.set_page_config(page_title="BizBrain AI", page_icon="🧠", layout="centered")
+st.set_page_config(page_title="BizBrain AI", layout="centered")
 
 
 def get_api_key():
@@ -55,7 +55,7 @@ PERSONALITY_PROMPTS = {
 
 
 def chatbot():
-    st.subheader("💬 BizBrain AI Chatbot")
+    st.subheader("BizBrain AI Chatbot")
     bot_type = st.selectbox("Choose your chatbot personality:", list(PERSONALITY_PROMPTS))
 
     user_input = st.text_input("You:", key="text_input")
@@ -76,14 +76,14 @@ CONTENT_PROMPTS = {
 
 
 def content_generator():
-    st.subheader("✍️ AI Content Generator")
+    st.subheader("AI Content Generator")
     content_type = st.radio("Select content type:", list(CONTENT_PROMPTS))
     content_input = st.text_area("Enter the topic / purpose / keywords:")
 
     if st.button("Generate") and content_input:
         answer = gemini_or_key_notice(CONTENT_PROMPTS[content_type].format(content_input))
         if answer:
-            st.subheader("📝 Generated Output")
+            st.subheader("Generated Output")
             st.write(answer)
 
 
@@ -142,7 +142,7 @@ def csv_tool():
     except Exception as e:
         st.error(f"Error reading CSV file: {e}")
         return
-    st.write("📋 Uploaded CSV data:")
+    st.write("Uploaded CSV data:")
     st.dataframe(df)
     st.write("Quick summary:")
     st.dataframe(df.describe(include="all").transpose())
@@ -169,7 +169,7 @@ TOOLS = {
 
 
 def student_toolkit():
-    st.subheader("📚 Student Productivity Toolkit")
+    st.subheader("Student Productivity Toolkit")
     tool = st.radio("Choose a feature:", list(TOOLS))
     kind = TOOLS[tool]
     if kind == "image":
@@ -189,10 +189,10 @@ def student_toolkit():
 
 
 def main():
-    st.title("🧠 BizBrain AI")
+    st.title("BizBrain AI")
     user_name = st.text_input("Enter your name:", key="name")
     if user_name:
-        st.caption(f"Hi {user_name} 👋")
+        st.caption(f"Hi {user_name}")
 
     selected = st.radio("Choose a tool:",
                         ["Student Productivity Toolkit", "AI Content Generator", "BizBrain AI Chatbot"],
