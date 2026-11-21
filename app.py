@@ -10,8 +10,19 @@ MODELS = ["gemini-3.1-flash-lite", "gemini-3.5-flash"]
 
 st.set_page_config(page_title="BizBrain AI", layout="centered")
 
+with st.sidebar:
+    st.text_input(
+        "Your Gemini API key (optional)",
+        type="password",
+        key="user_gemini_key",
+        help="Only used for this session, never stored. Leave blank to use the built-in key.",
+    )
+
 
 def get_api_key():
+    user_key = st.session_state.get("user_gemini_key", "")
+    if user_key:
+        return user_key
     try:
         key = st.secrets.get("GEMINI_API_KEY", "")
     except Exception:
