@@ -1,6 +1,7 @@
+**Live app:** https://bizbrain-ai.streamlit.app/
+
 # BizBrain AI
 
-**Live app:** https://bizbrain-ai.streamlit.app/
 
 A Streamlit app with three AI tools in one place:
 
@@ -35,3 +36,7 @@ A Streamlit app with three AI tools in one place:
 - Image text extraction uses Tesseract OCR. On Streamlit Cloud it installs automatically via `packages.txt`. Locally, install it with your package manager (e.g. `sudo apt install tesseract-ocr`).
 - `Global_Education.csv` is a sample dataset (UNESCO out-of-school and completion rates) to try the CSV analysis tool.
 - Models: `gemini-3.1-flash-lite` first, falling back to `gemini-3.5-flash` (set at the top of `app.py`).
+
+## Demo
+
+![BizBrain demo](assets/demo.gif)
