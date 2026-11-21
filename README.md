@@ -1,6 +1,6 @@
 # BizBrain AI
 
-**Live app:** <link added after Streamlit Cloud deploy>
+**Live app:** https://bizbrain-ai.streamlit.app/
 
 A Streamlit app with three AI tools in one place:
 
